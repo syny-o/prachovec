@@ -1,0 +1,191 @@
+/*============ BOOTSTRAP BREAK POINTS:
+
+Extra small (xs) devices (portrait phones, less than 576px)
+No media query since this is the default in Bootstrap
+
+Small (sm) devices (landscape phones, 576px and up)
+@media (min-width: 576px) { ... }
+
+Medium (md) devices (tablets, 768px and up)
+@media (min-width: 768px) { ... }
+
+Large (lg) devices (desktops, 992px and up)
+@media (min-width: 992px) { ... }
+
+Extra (xl) large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) { ... }
+
+=============*/
+
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Balsamiq+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+
+/*------------ Variables -------------------*/
+:root {
+  --primary-color: #5f7f2a;
+  --secondary-color: #cecece;
+  --light-color: #f4f4f4;
+  --dark-color: #333;
+  --danger-color: #dc3545;
+}
+
+/*------------- GLOBAL SETTINGS -------------------*/
+html {
+  scroll-behavior: smooth;
+}
+
+.text-primary {
+  color: var(--primary-color) !important;
+}
+
+body {
+  overflow-x: hidden;
+  /*font-family: 'Lato', sans-serif;*/
+  font-family: "Montserrat", sans-serif;
+  color: #545962;
+}
+
+p {
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 2;
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+h2 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  letter-spacing: normal;
+  /* text-transform: uppercase; */
+  text-align: center;
+}
+
+.btn-primary {
+  border-color: var(--primary-color);
+  background-color: var(--primary-color);
+  border-width: medium;
+  padding: 0.6rem 1.3rem;
+  font-size: 1.2rem;
+  min-width: 8rem;
+}
+.btn-primary:hover {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  color: #fff;
+}
+.btn-secondary {
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+  border-width: medium;
+  background-color: transparent;
+  text-decoration: none !important;
+}
+.btn-secondary:hover {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  color: #fff;
+}
+
+/* -----------------  Navigation Start ----------------- */
+.navbar {
+  text-transform: uppercase;
+  /* font-weight: 700; */
+  font-size: 1rem; /*1rem = 16px*/
+  letter-spacing: 0.1rem;
+  background: rgba(255, 255, 255, 0.9) !important;
+}
+
+.navbar-nav {
+  margin: auto !important;
+}
+
+.navbar-nav li {
+  padding: 0.5rem;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+  color: #777;
+}
+
+.navbar-dark .navbar-nav .nav-link.active,
+.navbar-dark .navbar-nav .nav-link:hover {
+  color: #fff;
+  background-color: var(--primary-color);
+  border-radius: 5px;
+}
+
+.navbar-toggler-icon {
+  filter: invert(0.9);
+  font-size: 2rem;
+  z-index: 999;
+}
+
+/* -----------------  Navigation End ----------------- */
+
+/* -----------------  Hero section ----------------- */
+
+.landing {
+  position: relative; /*vzhledem k .banner-caption*/
+  height: 80vh;
+}
+
+.carousel-item1 {
+  background-image: url(../img/banner1.jpg);
+}
+
+.carousel-item2 {
+  background-image: url(../img/banner2.jpg);
+}
+
+.carousel-item3 {
+  background-image: url(../img/banner3.jpg);
+}
+
+.carousel-item1,
+.carousel-item2,
+.carousel-item3 {
+  background-size: cover;
+  background-position: center;
+}
+
+.banner-caption {
+  position: absolute; /*vzhledem k .landing*/
+  bottom: 40%;
+  left: 17%;
+  /* background: rgba(0, 0, 0, 0.2) !important; */
+  padding: 0.9rem;
+
+  /* Animation */
+  opacity: 0;
+  animation: fadeDown 0.5s forwards;
+  animation-delay: 0.8s;
+}
+
+.banner-caption h1 {
+  text-transform: inherit;
+  font-size: 6.2rem;
+  letter-spacing: 0.2rem;
+  font-family: "Indie Flower", cursive;
+  color: #fff;
+}
+.banner-caption h3 {
+  text-shadow: 0.1rem 0.1rem 0.5rem black;
+  color: #cfcfcf;
+  margin-top: -1rem;
+  font-size: 2.3rem;
+  letter-spacing: 0.1rem;
+}
+
+/* -----------------  Hero section End ----------------- */
+
+.input-group-text {
+  background-color: var(--primary-color);
+  color: #fff;
+  border-color: var(--primary-color);
+}

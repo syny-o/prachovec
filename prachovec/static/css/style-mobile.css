@@ -1,0 +1,79 @@
+@media (max-width: 767px) {
+  h2 {
+    font-size: 1.3rem;
+  }
+
+  .navbar-nav {
+    text-align: center;
+  }
+
+  .banner-caption {
+    width: 100%;
+    margin: auto;
+    bottom: 13%;
+    left: 0%;
+    background-color: #5459628e !important;
+  }
+
+  .banner-caption h1 {
+    font-size: 3rem; /*1rem = 16px*/
+  }
+  .banner-caption h3 {
+    font-size: 1.3rem;
+    color: #eee;
+  }
+
+  #introduction h1 {
+    font-size: 2.2rem;
+    letter-spacing: 0.15rem;
+    padding-bottom: 0.5rem;
+  }
+
+  #cards {
+    padding-top: 0;
+    padding-bottom: 0;
+    background: none;
+  }
+
+  #clients {
+    padding: 3rem 0;
+  }
+
+  #clients .container {
+    padding: 0;
+  }
+
+  blockquote {
+    font-size: 0.9rem;
+  }
+
+  #contact {
+    padding-top: 0;
+  }
+
+  #contact .border-right {
+    border-right: none !important;
+    border-bottom: 1px solid #cecece !important;
+    margin-bottom: 1.3rem !important;
+    padding-bottom: 0.5rem !important;
+  }
+
+  .go-top {
+    bottom: 1rem;
+    right: 1rem;
+    opacity: 1;
+  }
+
+  .go-top .fa-arrow-up {
+    font-size: 1rem;
+  }
+
+  .lightbox-image {
+    max-width: 100%;
+  }
+
+  #activities-gallery a,
+  #accommodation-gallery a {
+    pointer-events: none !important;
+  }
+}
