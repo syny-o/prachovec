@@ -1,7 +1,13 @@
-{% extends "mysite/base/header.html" %} {% block content %}
-<!-- Hero Section -->
-{% include "mysite/home/hero.html" %} {% include "mysite/home/icons.html" %}
-{%include "mysite/home/contact_form.html" %}
+{% extends "mysite/base/base.html" %}
 
-<!-- End Hero Section -->
+{% block content %}
+
+{% include "mysite/home/hero.html" %}
+<div id="background">
+    {% include "mysite/home/icons.html" %}
+    {% include "mysite/home/news.html" %}
+    {% include "mysite/home/cards.html" %}
+</div>
+{% include "mysite/home/map.html" %}
+
 {% endblock %}
