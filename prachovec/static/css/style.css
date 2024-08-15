@@ -245,3 +245,30 @@ footer .address p {
   margin: 0;
   color: #cecece;
 }
+
+/* IMAGE GALLERY START*/
+
+#ubytovani-hero {
+  height: 70vh;
+}
+
+#ubytovani-hero .carousel-item1 {
+  background-image: url(../img/ubytovani-carousel-1.jpg);
+}
+
+#ubytovani-hero .carousel-item2 {
+  background-image: url(../img/ubytovani-carousel-2.jpg);
+}
+
+#ubytovani-hero .carousel-item3 {
+  background-image: url(../img/ubytovani-carousel-3.jpg);
+}
+
+#photo-gallery .image {
+  display: block;
+  width: 100%;
+}
+
+#price-list ul {
+  list-style: none;
+}
