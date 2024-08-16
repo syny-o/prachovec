@@ -217,10 +217,6 @@ h2 {
 
 /* ----------------- Form section Start ---------------- */
 
-
-
-
-
 #contact-form {
   background-color: var(--primary-color);
 }
@@ -267,7 +263,8 @@ footer .address p {
 
 /* IMAGE GALLERY START*/
 
-#ubytovani-hero {
+#ubytovani-hero,
+#obcerstveni-hero {
   height: 70vh;
 }
 
@@ -281,6 +278,18 @@ footer .address p {
 
 #ubytovani-hero .carousel-item3 {
   background-image: url(../img/ubytovani-carousel-3.jpg);
+}
+
+#obcerstveni-hero .carousel-item1 {
+  background-image: url(../img/obcerstveni-carousel-1.jpg);
+}
+
+#obcerstveni-hero .carousel-item2 {
+  background-image: url(../img/obcerstveni-carousel-2.jpg);
+}
+
+#obcerstveni-hero .carousel-item3 {
+  background-image: url(../img/obcerstveni-carousel-3.jpg);
 }
 
 #photo-gallery .image {

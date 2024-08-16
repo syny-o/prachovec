@@ -7,3 +7,7 @@ def home(request):
 def ubytovani(request):
     return render(request, 'mysite/ubytovani.html')
 
+
+def obcerstveni(request):
+    return render(request, 'mysite/obcerstveni.html')
+
