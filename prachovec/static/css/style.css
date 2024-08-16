@@ -217,9 +217,17 @@ h2 {
 
 /* ----------------- Form section Start ---------------- */
 
-.input-group-text {
+
+
+
+
+#contact-form {
   background-color: var(--primary-color);
-  color: #fff;
+}
+
+.input-group-text {
+  /* background-color: var(--primary-color); */
+  /* color: #fff; */
   border-color: var(--primary-color);
 }
 
