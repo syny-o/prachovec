@@ -12,6 +12,8 @@ function scrollEffect() {
   });
 }
 
+
+// Go to Top Button
 function goToTop() {
   const goTop = document.querySelector(".go-top");
 
@@ -24,7 +26,20 @@ function goToTop() {
   });
 }
 
+// Spinner
+function hideSpinner() {
+  const spinnerWrapper = document.getElementById("spinner-wrapper");
+  spinnerWrapper.classList.add("spinner-hidden");
+  // spinnerWrapper.style.display = "none";
+  setTimeout(() => {
+    spinnerWrapper.remove();
+  }, 500);
+}
+
+  
+
 document.addEventListener("DOMContentLoaded", () => {
   scrollEffect();
   goToTop();
+  hideSpinner();
 });

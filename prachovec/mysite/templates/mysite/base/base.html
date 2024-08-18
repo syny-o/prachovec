@@ -13,9 +13,19 @@
   </head>
 
   <body>
+    <div id="spinner-wrapper">
+      <div class="spinner-grow text-primary" style="width: 5rem; height: 5rem;" role="status">
+        <img src="{% static 'img/logoprachovec_tr.png' %}" alt="logo" width="80">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    </div>
     {% include 'mysite/base/header.html' %} {% block content %}{% endblock %}
     {%include 'mysite/base/footer.html' %}
+    {% comment %} GO TOP BUTTON {% endcomment %}
     <a href="#" class="go-top shadow"><i class="fas fa-angle-up"></i></a>
+    {% comment %} LOADINF SPINNER {% endcomment %}
+  
+
 
     <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
 
