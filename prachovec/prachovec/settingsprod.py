@@ -32,7 +32,7 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', '')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['itutorialy.cz']
+ALLOWED_HOSTS = ['www.ondrejsynek.eu', 'ondrejsynek.eu']
 
 
 # Application definition
@@ -84,8 +84,8 @@ WSGI_APPLICATION = 'prachovec.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'project_one_db',
-        'USER': 'project_one_user',
+        'NAME': 'db_prachovec',
+        'USER': 'user_prachovec',
         'PASSWORD': os.environ.get('DB_PASSWORD', ''),
         'HOST': 'localhost',
         'PORT': '',
