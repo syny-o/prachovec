@@ -4,40 +4,32 @@
         <h2>Aktuality</h2>
         <div class="row">
 
-            <div class="col-md-6" data-aos="fade-in" data-aos-delay="300">
-                <div class="card shadow my-1">
-                    <div class="card-header bg-white d-flex justify-content-center align-items-center gap-3">
-                        {% comment %} <i class="fa fa-calendar text-primary fa-1x"></i> {% endcomment %}
-                        <h5 class="title m-0"><b>13.4.2024</b></h5>
-                    </div>
-                    <div class="card-body text-center">
-
-                        <p>Rezervace na letošní sezónu jsou již v plném proudu. Některé oblíbené termíny se nám již
-                            téměř zaplnily, doporučujeme včasnou rezervaci !</p>
-                    </div>
-                </div>
-            </div>
+            {% for one_news in news %}
 
             <div class="col-md-6" data-aos="fade-in" data-aos-delay="300">
                 <div class="card shadow my-1">
                     <div class="card-header bg-white d-flex justify-content-center align-items-center gap-3">
                         {% comment %} <i class="fa fa-calendar text-primary fa-1x"></i> {% endcomment %}
-                        <h5 class="title m-0"><b>19.3.2024</b></h5>
+                        <h5 class="title m-0"><b>{{ one_news.date.day }}. {{ one_news.date.month }}.
+                                {{ one_news.date.year }}</b></h5>
                     </div>
                     <div class="card-body text-center">
 
-                        <p>Na základě dotazů z řad zájemců o ubytování v našem areálu Prachovec informujeme, že bazén
-                            bude letos v provozu od 29.6.2024 !</p>
+                        <p>{{ one_news.text|safe }}</p>
                     </div>
                 </div>
             </div>
+
+            {% endfor %}
+
+
 
 
 
         </div>
     </div>
 
-    <div class="m-5 d-flex justify-content-center">
+    <div class="m-lg-5 mt-4 py-3 d-flex justify-content-center">
         <button class="btn btn-lg btn-secondary">Poptat termín</button>
     </div>
 
