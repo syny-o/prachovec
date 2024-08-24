@@ -99,12 +99,22 @@ h2 {
 }
 
 /* -----------------  Navigation Start ----------------- */
+
+.logo {
+  height: 100px;
+  transition: all 0.3s ease-out;
+}
+
+.logo-small {
+  height: 80px;
+}
+
 .navbar {
   text-transform: uppercase;
   /* font-weight: 700; */
   font-size: 1rem; /*1rem = 16px*/
   letter-spacing: 0.1rem;
-  transition: all 0.5s ease-in-out !important;
+  transition: all 0.3s ease-in-out !important;
   background-color: #eee;
   height: 100px;
 
@@ -211,6 +221,14 @@ h2 {
   background-size: cover;
 }
 
+/* -----------------  Icons section Start ----------------- */
+
+.icon-container {
+  width: 100px !important;
+}
+
+/* -----------------  Cards section Start ----------------- */
+
 .card-text {
   height: 8rem;
 }
@@ -263,7 +281,6 @@ footer .address p {
 
 /* UBYTOVANI START*/
 
-
 #ubytovani-hero,
 #obcerstveni-hero {
   height: 70vh;
@@ -302,11 +319,7 @@ footer .address p {
   list-style: none;
 }
 
-
-
 /* UBYTOVANI END*/
-
-
 
 /* GLOBAL START */
 
@@ -344,8 +357,7 @@ footer .address p {
   visibility: visible;
 }
 
-
-#spinner-wrapper{
+#spinner-wrapper {
   position: fixed;
   top: 0;
   left: 0;
@@ -362,7 +374,7 @@ footer .address p {
   transition: opacity 0.5s ease-in-out;
 }
 
-#spinner-wrapper img{
+#spinner-wrapper img {
   position: fixed;
   top: 50%;
   left: 50%;
@@ -370,7 +382,7 @@ footer .address p {
   z-index: 999999;
 }
 
-.spinner-hidden{
+.spinner-hidden {
   opacity: 0 !important;
 }
 
