@@ -1,22 +1,24 @@
 <section id="contact-form" class="py-5">
   <div class="container pt-5 pb-5">
     <h2 class="mb-4 text-light">Poptat termín</h2>
-    <form method="post" action="">
+    <form method="POST" action="{{ contact_section }}">
       {% csrf_token %}
 
       <!-- Row for Name and Surname and Number of Persons  -->
       <div class="row mb-3">
-        <div class="col-md-6">
+        <div class="col-md-6 mb-3 my-mb-0">
           <div class="input-group">
             <span class="input-group-text"><i class="fas fa-user"></i></span>
-            <input type="text" class="form-control" id="name" name="name" placeholder="Name" required />
+            {% comment %} <input type="text" class="form-control" id="name" name="name" placeholder="Name" required /> {% endcomment %}
+            {{ form.full_name }}
           </div>
         </div>
         <div class="col-md-6">
           <div class="input-group">
             <span class="input-group-text"><i class="fas fa-users"></i></span>
-            <input type="number" class="form-control" id="num_persons" name="num_persons"
-              placeholder="Number of Persons" required />
+            {% comment %} <input type="number" class="form-control" id="num_persons" name="num_persons"
+              placeholder="Number of Persons" required /> {% endcomment %}
+            {{ form.persons }}
           </div>
         </div>
       </div>
@@ -24,16 +26,18 @@
 
       <!-- Row for Phone and Email -->
       <div class="row mb-3">
-        <div class="col-md-6">
+        <div class="col-md-6 mb-3 my-mb-0">
           <div class="input-group">
             <span class="input-group-text"><i class="fas fa-phone"></i></span>
-            <input type="tel" class="form-control" id="phone" name="phone" placeholder="Phone" required />
+            {% comment %} <input type="tel" class="form-control" id="phone" name="phone" placeholder="Phone" required /> {% endcomment %}
+            {{ form.phone }}
           </div>
         </div>
         <div class="col-md-6">
           <div class="input-group">
             <span class="input-group-text"><i class="fas fa-envelope"></i></span>
-            <input type="email" class="form-control" id="email" name="email" placeholder="Email" required />
+            {% comment %} <input type="email" class="form-control" id="email" name="email" placeholder="Email" required /> {% endcomment %}
+            {{ form.email }}
           </div>
         </div>
       </div>
@@ -41,18 +45,20 @@
       <!-- Row for Dates -->
       <div class="row mb-3">
 
-        <div class="col-md-6">
+        <div class="col-md-6 mb-3 my-mb-0">
           <div class="input-group">
             <span class="input-group-text"><i class="fas fa-calendar-alt"></i></span>
-            <input type="date" class="form-control" id="arrival_date" name="arrival_date" placeholder="Date of Arrival"
-              required />
+            {% comment %} <input type="date" class="form-control" id="arrival_date" name="arrival_date" placeholder="Date of Arrival"
+              required /> {% endcomment %}
+            {{ form.date_arrival }}
           </div>
         </div>
         <div class="col-md-6">
           <div class="input-group">
             <span class="input-group-text"><i class="fas fa-calendar-alt"></i></span>
-            <input type="date" class="form-control" id="departure_date" name="departure_date"
-              placeholder="Date of Departure" required />
+            {% comment %} <input type="date" class="form-control" id="departure_date" name="departure_date"
+              placeholder="Date of Departure" required /> {% endcomment %}
+            {{ form.date_departure }}
           </div>
         </div>
       </div>
@@ -62,7 +68,8 @@
         <div class="col-12">
           <div class="input-group">
             <span class="input-group-text"><i class="fas fa-sticky-note"></i></span>
-            <textarea class="form-control" id="note" name="note" placeholder="Note" rows="3"></textarea>
+            {% comment %} <textarea class="form-control" id="note" name="note" placeholder="Note" rows="3"></textarea> {% endcomment %}
+            {{ form.note }}
           </div>
         </div>
       </div>
@@ -72,5 +79,22 @@
         <button type="submit" class="btn btn-lg btn-bg-secondary btn-outline-light">Odeslat</button>
       </div>
     </form>
+
+    {% for message in messages %} 
+
+      {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %} 
+        <p class="mt-3 mb-0 alert alert-success float-center text-center">
+          {{ message }}
+        </p>
+
+      {% elif message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+        <p class="mt-3 mb-0 alert alert-danger float-center text-center">
+          {{ message }}
+        </p>
+        
+      {% endif %}
+    
+    {% endfor %} 
+
   </div>
 </section>
