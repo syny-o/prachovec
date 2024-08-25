@@ -11,16 +11,16 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto text-center justify-content-center">
           <li class="nav-item">
-            <a class="nav-link active" href="{% url 'mysite:home' %}">Home</a>
+            <a class="nav-link {% if request.path == '/' %}active{% endif %}" href="{% url 'mysite:home' %}">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'mysite:ubytovani' %}">Ubytování</a>
+            <a class="nav-link {% if request.path == '/ubytovani' %}active{% endif %}" href="{% url 'mysite:ubytovani' %}">Ubytování</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'mysite:obcerstveni' %}">Občerstvení</a>
+            <a class="nav-link {% if request.path == '/obcerstveni' %}active{% endif %}" href="{% url 'mysite:obcerstveni' %}">Občerstvení</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="activities.html">Aktivity</a>
+            <a class="nav-link {% if request.path == '/aktivity' %}active{% endif %}" href="">Aktivity</a>
           </li>
 
         </ul>
