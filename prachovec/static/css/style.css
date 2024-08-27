@@ -166,23 +166,10 @@ h2 {
   height: 80vh;
 }
 
-.carousel-item1 {
-  background-image: url(../img/banner1.jpg);
-}
-
-.carousel-item2 {
-  background-image: url(../img/banner2.jpg);
-}
-
-.carousel-item3 {
-  background-image: url(../img/banner3.jpg);
-}
-
-.carousel-item1,
-.carousel-item2,
-.carousel-item3 {
-  background-size: cover;
-  background-position: center;
+.landing img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
 }
 
 .banner-caption {
@@ -290,28 +277,11 @@ footer .address p {
   height: 70vh;
 }
 
-#ubytovani-hero .carousel-item1 {
-  background-image: url(../img/ubytovani-carousel-1.jpg);
-}
-
-#ubytovani-hero .carousel-item2 {
-  background-image: url(../img/ubytovani-carousel-2.jpg);
-}
-
-#ubytovani-hero .carousel-item3 {
-  background-image: url(../img/ubytovani-carousel-3.jpg);
-}
-
-#obcerstveni-hero .carousel-item1 {
-  background-image: url(../img/obcerstveni-carousel-1.jpg);
-}
-
-#obcerstveni-hero .carousel-item2 {
-  background-image: url(../img/obcerstveni-carousel-2.jpg);
-}
-
-#obcerstveni-hero .carousel-item3 {
-  background-image: url(../img/obcerstveni-carousel-3.jpg);
+#ubytovani-hero img,
+#obcerstveni-hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 #photo-gallery .image {

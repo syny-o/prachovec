@@ -1,3 +1,5 @@
+{% load static %}
+
 <section class="landing" data-aos="fade-in" data-aos-delay="400">
   <div id="carouselExampleIndicators" class="carousel slide h-100">
     <div class="carousel-indicators">
@@ -9,9 +11,15 @@
         aria-label="Slide 3"></button>
     </div>
     <div class="carousel-inner h-100">
-      <div class="carousel-item active carousel-item1 h-100"></div>
-      <div class="carousel-item carousel-item2 h-100"></div>
-      <div class="carousel-item carousel-item3 h-100"></div>
+      <div class="carousel-item active carousel-item1 h-100">
+        <img src="{% static 'img/banner1.jpg' %}" alt="">
+      </div>
+      <div class="carousel-item carousel-item2 h-100">
+        <img src="{% static 'img/banner2.jpg' %}" alt="">
+      </div>
+      <div class="carousel-item carousel-item3 h-100">
+        <img src="{% static 'img/banner3.jpg' %}" alt="">
+      </div>
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
       data-bs-slide="prev">

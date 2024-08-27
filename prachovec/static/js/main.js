@@ -38,8 +38,11 @@ function hideSpinner() {
   }, 500);
 }
 
+// after whole DOM is loaded, add particular event listeners
 document.addEventListener("DOMContentLoaded", () => {
   scrollEffect();
   goToTop();
-  hideSpinner();
 });
+
+// hide spinner after everything is loaded including all images
+window.onload = hideSpinner;
