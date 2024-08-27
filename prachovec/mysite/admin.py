@@ -1,5 +1,8 @@
 from django.contrib import admin
-from .models import News, Contact
+from .models import News, Contact, HomeCarousel
+
+
+admin.site.register(HomeCarousel)
 
 
 
