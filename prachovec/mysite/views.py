@@ -4,17 +4,20 @@ from django.conf import settings
 from django.urls import reverse
 from django.contrib import messages
 
-from .models import News
+from .models import News, HomeCarousel
 from .forms import ContactForm
 
 
 def home(request):
+
+    carousel_images = HomeCarousel.objects.all()
     news = News.objects.all()
     if len(news) > 2:
         news = news[:2]
         
     context = {
-        'news': news
+        'carousel_images' : carousel_images,
+        'news': news,
     }
 
     return render(request, 'mysite/home.html', context)
