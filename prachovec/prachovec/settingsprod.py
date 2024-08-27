@@ -44,7 +44,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    #3rd apps
+    'ckeditor',
+    # my apps
     'mysite',
+
 ]
 
 MIDDLEWARE = [
@@ -129,9 +133,7 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
-STATICFILES_DIRS = [
-    BASE_DIR / "static",
-]
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
@@ -147,3 +149,21 @@ EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 EMAIL_HOST_USER = "synekjbc@gmail.com"
 EMAIL_HOST_PASSWORD = "yetxpqennfwpjibr"
+
+
+# Logging settings
+LOGGING = {                                                                                                                 
+            'version': 1,
+                'disable_existing_loggers': False,
+                    'handlers': {
+                                'logfile': {
+                                                'class': 'logging.FileHandler',
+                                                            'filename': '../../logs/django_server.log',
+                                                                    },
+                                    },
+                        'loggers': {
+                                    'django': {
+                                                    'handlers': ['logfile'],
+                                                            },
+                                        },
+                        }
