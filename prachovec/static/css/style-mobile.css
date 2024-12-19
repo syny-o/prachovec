@@ -3,8 +3,10 @@
     font-size: 1.3rem;
   }
 
-  .navbar-nav {
+  .navbar-collapse {
     text-align: center;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 10px !important;
   }
 
   .banner-caption {
