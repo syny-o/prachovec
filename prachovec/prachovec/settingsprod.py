@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     #3rd apps
     'ckeditor',
+    'django_celery_results',    
     # my apps
     'mysite',
 
@@ -153,7 +154,15 @@ EMAIL_HOST = "smtp.gmail.com"
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 EMAIL_HOST_USER = "synekjbc@gmail.com"
-EMAIL_HOST_PASSWORD = "yetxpqennfwpjibr"
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_PASSWORD', '')
+
+
+# CELERY SETTINGS
+CELERY_BROKER_URL = 'redis://localhost:6379/0'
+CELERY_BROKER_CONNECTION_RETRY_ON_STARTUP = True
+CELERY_RESULT_BACKEND = 'django-db'
+CELERY_RESULT_EXTENDED = True
+
 
 
 # Logging settings

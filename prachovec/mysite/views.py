@@ -6,6 +6,7 @@ from django.contrib import messages
 
 from .models import News, HomeCarousel
 from .forms import ContactForm
+from .tasks import task_send_email
 
 
 def home(request):
@@ -43,7 +44,10 @@ def ubytovani(request):
         if form.is_valid():
             form.save()
             
-            handle_email(form.cleaned_data['email'], form.cleaned_data['full_name'], form.cleaned_data['phone'], form.cleaned_data['email'], form.cleaned_data['note'], form.cleaned_data['date_arrival'], form.cleaned_data['date_departure'])
+            # handle_email(form.cleaned_data['email'], form.cleaned_data['full_name'], form.cleaned_data['phone'], form.cleaned_data['email'], form.cleaned_data['note'], form.cleaned_data['date_arrival'], form.cleaned_data['date_departure'])
+
+            # CELEERY
+            task_send_email.delay(form.cleaned_data['email'], form.cleaned_data['full_name'], form.cleaned_data['phone'], form.cleaned_data['email'], form.cleaned_data['note'], form.cleaned_data['date_arrival'], form.cleaned_data['date_departure'])
 
             messages.success(request, 'Děkujeme za zprávu. Ozveme se Vám co nejdříve.')
             
@@ -70,12 +74,12 @@ def obcerstveni(request):
 
 
 
-def handle_email(email_from, full_name, phone, email, note, date_arrival, date_departure):    
-    subject = 'Nová zpráva z webu Prachovec'
-    message = 'Jméno: ' + full_name + '\n' + 'Telefon: ' + phone + '\n' + 'Email: ' + email + '\n' + 'Poznámka: ' + note + '\n' + 'Datum příjezdu: ' + str(date_arrival) + '\n' + 'Datum odjezdu: ' + str(date_departure)
-    email_from = email_from
-    recipient_list = ['synek.o@seznam.cz',]   
-    send_mail( subject, message, email_from, recipient_list )  
+# def handle_email(email_from, full_name, phone, email, note, date_arrival, date_departure):    
+#     subject = 'Nová zpráva z webu Prachovec'
+#     message = 'Jméno: ' + full_name + '\n' + 'Telefon: ' + phone + '\n' + 'Email: ' + email + '\n' + 'Poznámka: ' + note + '\n' + 'Datum příjezdu: ' + str(date_arrival) + '\n' + 'Datum odjezdu: ' + str(date_departure)
+#     email_from = email_from
+#     recipient_list = ['synek.o@seznam.cz',]   
+#     send_mail( subject, message, email_from, recipient_list )  
 
 
 
