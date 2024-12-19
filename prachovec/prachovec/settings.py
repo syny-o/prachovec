@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-82t2*auan4w#em&%5487dw5=p^f(tejm9c!z%uefmz-t1y)jr&
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost',]
 
 
 # Application definition
@@ -56,7 +56,7 @@ ROOT_URLCONF = 'prachovec.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR/'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
