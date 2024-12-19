@@ -3,7 +3,7 @@ from celery import Celery
 
 
 # set the default Django settings module for the 'celery' program.
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'prachovec.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'prachovec.settingsprod')
 
 
 # create a new Celery instance
