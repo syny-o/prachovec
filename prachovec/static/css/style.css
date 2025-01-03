@@ -215,7 +215,16 @@ h2 {
 /* -----------------  Icons section Start ----------------- */
 
 .icon-container {
-  width: 100px !important;
+  min-width: 60px !important;
+  height: 60px !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.icon-container svg {
+  font-size: 32px;
+  line-height: 1;
 }
 
 /* -----------------  Cards section Start ----------------- */
