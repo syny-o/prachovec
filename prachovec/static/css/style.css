@@ -23,7 +23,7 @@ Extra (xl) large devices (large desktops, 1200px and up)
 
 /*------------ Variables -------------------*/
 :root {
-  --primary-color: #5f7f2a;
+  --primary-color: rgb(95, 127, 42);
   --secondary-color: #cecece;
   --light-color: #f4f4f4;
   --dark-color: #333;
@@ -44,9 +44,9 @@ html {
 }
 
 #introduction b {
-  background-color: var(--primary-color);
-  color: #fff;
-  padding: 2px 5px;
+  /* background-color: var(--primary-color); */
+  color: var(--primary-color);
+  /* padding: 2px 5px; */
 }
 
 body {
@@ -184,10 +184,13 @@ h2 {
 
 .banner-caption {
   position: absolute; /*vzhledem k .landing*/
-  bottom: 40%;
-  left: 17%;
-  /* background: rgba(0, 0, 0, 0.2) !important; */
-  padding: 0.9rem;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(95, 127, 42, 0.5) !important;
+  background: rgba(0, 0, 0, 0.4) !important;
+  padding: 4rem;
+  /* border-radius: 10px; */
 
   /* Animation */
   opacity: 0;
@@ -201,6 +204,7 @@ h2 {
   letter-spacing: 0.2rem;
   font-family: "Indie Flower", cursive;
   color: #fff;
+  text-align: center;
 }
 .banner-caption h3 {
   text-shadow: 0.1rem 0.1rem 0.5rem black;
@@ -208,6 +212,7 @@ h2 {
   margin-top: -1rem;
   font-size: 2.3rem;
   letter-spacing: 0.1rem;
+  text-align: center;
 }
 
 /* -----------------  Hero section End ----------------- */
