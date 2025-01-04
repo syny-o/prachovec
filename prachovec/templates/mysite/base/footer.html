@@ -4,27 +4,25 @@
     <div class="container">
         <div class="map-legend">
             <div class="row text-center p-3 m-3">
-                <div class="col-lg-3 border-end p-0">
-                    <a href="#">
+                <div class="col-lg-3 border-lg-end p-0">
+                    <a href="{% url 'mysite:home' %}">
                         <p><b>H</b>ome</p>
                     </a>
-                    <a href="accommodation.html">
+                    <a href="{% url 'mysite:ubytovani' %}">
                         <p><b>U</b>bytování</p>
                     </a>
-                    <a href="activities.html">
+                    <a href="{% url 'mysite:aktivity' %}">
                         <p><b>A</b>ktivity</p>
                     </a>
-                    <a href="restaurant.html">
+                    <a href="{% url 'mysite:obcerstveni' %}">
                         <p><b>O</b>bčerstvení</p>
                     </a>
-                    <a href="accommodation.html#price-list">
-                        <p><b>C</b>eník</p>
-                    </a>
-                    <a href="contact.html">
+
+                    <a href="contact.html" data-bs-toggle="modal" data-bs-target="#contactModal">
                         <p><b>K</b>ontakt</p>
                     </a>
                 </div>
-                <div class="col-lg-3 border-end p-0">
+                <div class="col-lg-3 border-lg-end p-0 mt-5 mt-lg-0">
                     <div class="row">
                         <div class="col-md-12 p-0">
                             <i class="fas fa-phone" data-fa-transform="shrink-3 up-0 left-0"></i>
@@ -50,7 +48,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 border-end p-0">
+                <div class="col-lg-3 border-lg-end p-0 mb-5 mb-lg-0">
                     <div class="row">
                         <div class="col-md-12 p-0">
                             <i class="fas fa-calendar-alt" data-fa-transform="shrink-0 up-0 left-0"></i>
@@ -84,7 +82,7 @@
                     <p class="mb-1">Palackého 2131/23</p>
                     <p class="mb-1">466 01, Jablonec nad Nisou</p>
                     <p class="mb-1">dentifikační číslo: 089 83 674</p>
-                    <p class="mb-1">Spisová značka oddíl C, vložka 44980 vedená Krajským soudem v Ústí nad Labem</p>
+                    <p class="mb-1">Spisová značka od. C, vložka 44980 vedená Krajským soudem v Ústí n/L</p>
                 </div>
             </div>
         </div>
@@ -110,4 +108,7 @@
             </div>
         </div>
     </div>
+
+    <!-- Modal -->
+    {% include 'mysite/base/modal_contact.html' %}
 </footer>
