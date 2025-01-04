@@ -76,6 +76,14 @@ h2 {
   text-align: center;
 }
 
+.btn {
+  min-width: 160px !important;
+}
+
+.btn svg {
+  margin-right: 5px !important;
+}
+
 .btn-primary {
   border-color: var(--primary-color);
   background-color: var(--primary-color);
@@ -209,6 +217,13 @@ h2 {
       rgba(255, 255, 255)
     ),
     url(../img/banner3.jpg) center no-repeat;
+  background-size: cover;
+}
+
+#contact-form {
+  background: linear-gradient(rgba(95, 127, 42, 0.9), rgba(95, 127, 42, 0.8)),
+    url(../img/prachovskeskaly.jpg) no-repeat 75% 75%;
+  /* background: rgba(64, 212, 38, 0.8), url(../img/banner3.jpg) center no-repeat; */
   background-size: cover;
 }
 
