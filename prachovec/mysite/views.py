@@ -73,6 +73,10 @@ def obcerstveni(request):
     return render(request, 'mysite/obcerstveni.html')
 
 
+def aktivity(request):
+    return render(request, 'mysite/aktivity.html')
+
+
 
 # def handle_email(email_from, full_name, phone, email, note, date_arrival, date_departure):    
 #     subject = 'Nová zpráva z webu Prachovec'

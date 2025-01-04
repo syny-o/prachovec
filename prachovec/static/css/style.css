@@ -78,31 +78,33 @@ h2 {
 
 .btn {
   min-width: 160px !important;
+  /* height: 50px; */
+  border-width: medium;
 }
 
 .btn svg {
-  margin-right: 5px !important;
+  margin-right: 6px !important;
 }
 
 .btn-primary {
   border-color: var(--primary-color);
   background-color: var(--primary-color);
-  border-width: medium;
-  padding: 0.6rem 1.3rem;
-  font-size: 1.2rem;
-  min-width: 8rem;
+
+  font-size: 1rem;
+  font-weight: 600;
 }
 .btn-primary:hover {
-  background-color: var(--primary-color);
+  background-color: transparent !important;
   border-color: var(--primary-color);
-  color: #fff;
+  color: var(--primary-color);
 }
 .btn-secondary {
   border-color: var(--primary-color);
   color: var(--primary-color);
-  border-width: medium;
+
   background-color: transparent;
-  text-decoration: none !important;
+  font-weight: 600;
+  font-size: 1rem;
 }
 .btn-secondary:hover {
   background-color: var(--primary-color);
@@ -228,6 +230,9 @@ h2 {
 }
 
 /* -----------------  Icons section Start ----------------- */
+#icons p {
+  margin-bottom: 1px !important;
+}
 
 .icon-container {
   min-width: 60px !important;
@@ -312,6 +317,9 @@ footer .address p {
 #photo-gallery .image {
   display: block;
   width: 100%;
+  height: 300px;
+  object-fit: cover;
+  object-position: center;
 }
 
 #price-list ul {
