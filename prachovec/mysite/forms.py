@@ -53,11 +53,11 @@ class ContactForm(ModelForm):
         }
 
         widgets = {
-            'full_name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Jméno a příjmení'}),  
-            'email': forms.EmailInput(attrs={'class': 'form-control', 'placeholder': 'Email'}),
-            'note': forms.Textarea(attrs={'class': 'form-control', 'style': 'height: 200px;', 'placeholder': 'Poznámka'}),
-            'phone': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Telefonní číslo'}),
-            'persons': forms.NumberInput(attrs={'class': 'form-control', 'min': 1, 'placeholder': 'Počet osob'}),
+            'full_name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Jan Novák'}),  
+            'email': forms.EmailInput(attrs={'class': 'form-control', 'placeholder': 'novak@email.cz'}),
+            'note': forms.Textarea(attrs={'class': 'form-control', 'style': 'height: 200px;', 'placeholder': ''}),
+            'phone': forms.TextInput(attrs={'class': 'form-control', 'placeholder': '606123456'}),
+            'persons': forms.NumberInput(attrs={'class': 'form-control', 'min': 1, 'placeholder': '4'}),
             'date_arrival': forms.DateInput(attrs={'class': 'form-control', 'placeholder': 'Datum příjezdu', 'type': 'date'}),
             'date_departure': forms.DateInput(attrs={'class': 'form-control', 'placeholder': 'Datum odjezdu', 'type': 'date'}),
 

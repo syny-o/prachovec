@@ -4,39 +4,37 @@
     <form method="POST" action="{{ contact_section }}">
       {% csrf_token %}
 
-      <!-- Row for Name and Surname and Number of Persons  -->
+      <!-- Row for Name and Surname and Number of Persons -->
       <div class="row mb-3">
         <div class="col-md-6 mb-3 my-mb-0">
+          <label for="name" class="form-label text-light">Jméno</label>
           <div class="input-group">
             <span class="input-group-text"><i class="fas fa-user"></i></span>
-            {% comment %} <input type="text" class="form-control" id="name" name="name" placeholder="Name" required /> {% endcomment %}
             {{ form.full_name }}
           </div>
         </div>
         <div class="col-md-6">
+          <label for="num_persons" class="form-label text-light">Počet osob</label>
           <div class="input-group">
             <span class="input-group-text"><i class="fas fa-users"></i></span>
-            {% comment %} <input type="number" class="form-control" id="num_persons" name="num_persons"
-              placeholder="Number of Persons" required /> {% endcomment %}
             {{ form.persons }}
           </div>
         </div>
       </div>
 
-
       <!-- Row for Phone and Email -->
       <div class="row mb-3">
         <div class="col-md-6 mb-3 my-mb-0">
+          <label for="phone" class="form-label text-light">Telefon</label>
           <div class="input-group">
             <span class="input-group-text"><i class="fas fa-phone"></i></span>
-            {% comment %} <input type="tel" class="form-control" id="phone" name="phone" placeholder="Phone" required /> {% endcomment %}
             {{ form.phone }}
           </div>
         </div>
         <div class="col-md-6">
+          <label for="email" class="form-label text-light">Email</label>
           <div class="input-group">
             <span class="input-group-text"><i class="fas fa-envelope"></i></span>
-            {% comment %} <input type="email" class="form-control" id="email" name="email" placeholder="Email" required /> {% endcomment %}
             {{ form.email }}
           </div>
         </div>
@@ -44,20 +42,17 @@
 
       <!-- Row for Dates -->
       <div class="row mb-3">
-
         <div class="col-md-6 mb-3 my-mb-0">
+          <label for="arrival_date" class="form-label text-light">Datum příjezdu</label>
           <div class="input-group">
             <span class="input-group-text"><i class="fas fa-calendar-alt"></i></span>
-            {% comment %} <input type="date" class="form-control" id="arrival_date" name="arrival_date" placeholder="Date of Arrival"
-              required /> {% endcomment %}
             {{ form.date_arrival }}
           </div>
         </div>
         <div class="col-md-6">
+          <label for="departure_date" class="form-label text-light">Datum odjezdu</label>
           <div class="input-group">
             <span class="input-group-text"><i class="fas fa-calendar-alt"></i></span>
-            {% comment %} <input type="date" class="form-control" id="departure_date" name="departure_date"
-              placeholder="Date of Departure" required /> {% endcomment %}
             {{ form.date_departure }}
           </div>
         </div>
@@ -66,35 +61,31 @@
       <!-- Row for Note -->
       <div class="row mb-3">
         <div class="col-12">
+          <label for="note" class="form-label text-light">Poznámka</label>
           <div class="input-group">
             <span class="input-group-text"><i class="fas fa-sticky-note"></i></span>
-            {% comment %} <textarea class="form-control" id="note" name="note" placeholder="Note" rows="3"></textarea> {% endcomment %}
             {{ form.note }}
           </div>
         </div>
       </div>
 
+      <!-- Submit Button -->
       <div class="d-flex justify-content-center gap-2">
-
         <button type="submit" class="btn btn-lg btn-bg-secondary btn-outline-light">Odeslat</button>
       </div>
     </form>
 
-    {% for message in messages %} 
-
-      {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %} 
-        <p class="mt-3 mb-0 alert alert-success float-center text-center">
-          {{ message }}
-        </p>
-
-      {% elif message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
-        <p class="mt-3 mb-0 alert alert-danger float-center text-center">
-          {{ message }}
-        </p>
-        
-      {% endif %}
-    
-    {% endfor %} 
-
+    <!-- Messages -->
+    {% for message in messages %}
+    {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+    <p class="mt-3 mb-0 alert alert-success float-center text-center">
+      {{ message }}
+    </p>
+    {% elif message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+    <p class="mt-3 mb-0 alert alert-danger float-center text-center">
+      {{ message }}
+    </p>
+    {% endif %}
+    {% endfor %}
   </div>
 </section>
