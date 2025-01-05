@@ -1,0 +1,17 @@
+{% load static %}
+
+<section id="photo-gallery" class="py-5">
+    <div class="container">
+        <div class="row">
+            {% for image in images %}
+            <div class="col-lg-4 col-sm-6 py-2">
+                <div class="thumbnail">
+                    <div class="img-container">
+                        <img src="{% static image %}" class="image" alt="Ubytování Prachovec" />
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>

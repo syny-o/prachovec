@@ -43,6 +43,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'mysite',
+    'accommodation',
+    'restaurant',
+    'activities',
     'ckeditor',
     'django_celery_results',
 ]

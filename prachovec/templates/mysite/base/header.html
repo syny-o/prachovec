@@ -16,15 +16,15 @@
           </li>
           <li class="nav-item">
             <a class="nav-link {% if request.path == '/ubytovani' %}active{% endif %}"
-              href="{% url 'mysite:ubytovani' %}">Ubytování</a>
+              href="{% url 'accommodation:accommodation' %}">Ubytování</a>
           </li>
           <li class="nav-item">
             <a class="nav-link {% if request.path == '/obcerstveni' %}active{% endif %}"
-              href="{% url 'mysite:obcerstveni' %}">Občerstvení</a>
+              href="{% url 'restaurant:restaurant' %}">Občerstvení</a>
           </li>
           <li class="nav-item">
             <a class="nav-link {% if request.path == '/aktivity' %}active{% endif %}"
-              href="{% url 'mysite:aktivity' %}">Aktivity</a>
+              href="{% url 'activities:activities' %}">Aktivity</a>
           </li>
 
         </ul>

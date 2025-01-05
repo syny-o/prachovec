@@ -49,6 +49,9 @@ INSTALLED_APPS = [
     'django_celery_results',    
     # my apps
     'mysite',
+    'accommodation',
+    'restaurant',
+    'activities',
 
 ]
 

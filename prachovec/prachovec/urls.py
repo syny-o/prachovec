@@ -23,6 +23,9 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('mysite.urls', namespace='mysite')),
+    path('ubytovavni/', include('accommodation.urls', namespace='accommodation')),
+    path('obcerstveni/', include('restaurant.urls', namespace='restaurant')),
+    path('aktivity/', include('activities.urls', namespace='activities')),
 ]
 
 

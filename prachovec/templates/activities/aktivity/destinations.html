@@ -1,0 +1,23 @@
+<div id="price-list" class="py-5 bg-light">
+    <div class="container">
+        <h2>Místa v okolí</h2>
+        <table class="table table-hover">
+            <thead class="thead-color">
+                <tr class="align-middle">
+                    <th class="align-middle" scope="col"></th>
+                    <th scope="col">Popis</th>
+                    <th scope="col">Vzdálenost</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for place in places %}
+                <tr>
+                    <th scope="row">{{ place.name }}</th>
+                    <td>{{ place.description }}</td>
+                    <td>{{ place.distance }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>

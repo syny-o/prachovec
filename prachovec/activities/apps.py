@@ -1,7 +1,7 @@
 from django.apps import AppConfig
 
 
-class MysiteConfig(AppConfig):
+class ActivitiesConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'mysite'
-    verbose_name = 'Home'
+    name = 'activities'
+    verbose_name = 'Aktivity'
