@@ -1,4 +1,4 @@
-<div id="price-list" class="py-5 bg-light">
+<section id="price-list" class="py-5 bg-light">
   <div class="container">
     <h2 class="mb-5">Nápojový lístek</h2>
     <table class="table table-hover">
@@ -12,8 +12,8 @@
       <tbody>
         {% for category in drinks_menu %}
         <tr>
-          <th scope="row" rowspan="{{ category.items|length }}">{{ category.category }}</th>
-          {% for item in category.items %}
+          <th scope="row" rowspan="{{ category.items.all|length }}">{{ category.name }}</th>
+          {% for item in category.items.all %}
           {% if forloop.first %}
           <td>{{ item.name }}</td>
           <td>{{ item.price }}</td>
@@ -29,6 +29,9 @@
       </tbody>
     </table>
 
+
+
+
     <h2 class="mt-5">Jídelní lístek</h2>
     <table class="table table-hover">
       <thead class="thead-color">
@@ -41,8 +44,8 @@
       <tbody>
         {% for category in food_menu %}
         <tr>
-          <th scope="row" rowspan="{{ category.items|length }}">{{ category.category }}</th>
-          {% for item in category.items %}
+          <th scope="row" rowspan="{{ category.items.all|length }}">{{ category.name }}</th>
+          {% for item in category.items.all %}
           {% if forloop.first %}
           <td>{{ item.name }}</td>
           <td>{{ item.price }}</td>
@@ -58,4 +61,5 @@
       </tbody>
     </table>
   </div>
-</div>
+
+</section>

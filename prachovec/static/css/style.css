@@ -187,9 +187,10 @@ h2 {
   bottom: 0;
   left: 0;
   width: 100%;
-  background: rgba(95, 127, 42, 0.5) !important;
+  /* background: rgba(95, 127, 42, 0.5) !important; */
   background: rgba(0, 0, 0, 0.4) !important;
-  padding: 4rem;
+  padding-bottom: 4rem;
+  padding-top: 2rem;
   /* border-radius: 10px; */
 
   /* Animation */
