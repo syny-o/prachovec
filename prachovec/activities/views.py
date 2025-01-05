@@ -6,4 +6,4 @@ def activities(request):
     context = {
         'places': places,
     }
-    return render(request, 'activities/aktivity.html', context)
+    return render(request, 'activities/activities.html', context)

@@ -23,7 +23,7 @@ def accommodation(request):
             'images': images_ubytovani,
         }
 
-        return render(request, 'accommodation/ubytovani.html', context)        
+        return render(request, 'accommodation/accommodation.html', context)        
 
 
     if request.method == 'POST':
@@ -48,4 +48,4 @@ def accommodation(request):
                 'form': form,  # Re-render the form with the existing data and errors
                 'contact_section': contact_section,  # Include the fragment identifier in the context
                 }
-            return render(request, 'accommodation/ubytovani.html', context)
+            return render(request, 'accommodation/accommodation.html', context)

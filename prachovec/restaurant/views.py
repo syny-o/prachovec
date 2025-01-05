@@ -8,4 +8,4 @@ def restaurant(request):
     food_menu = FoodCategory.objects.prefetch_related('items')
 
     context = {'drinks_menu': drinks_menu, 'food_menu': food_menu}
-    return render(request, 'restaurant/obcerstveni.html', context)
+    return render(request, 'restaurant/restaurant.html', context)
