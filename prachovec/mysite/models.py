@@ -6,19 +6,23 @@ from django.utils import timezone
 
 
 
-# HOME
 
-class HomeCarousel(models.Model):
+class Carousel(models.Model):
     title = models.CharField(max_length=200, verbose_name='Název')
     image = models.ImageField(upload_to='carousel_home/', verbose_name='Obrázek')
 
     def __str__(self):
         return self.title
     
+    class Meta:
+        verbose_name = 'Úvodní fotka'
+        verbose_name_plural = 'Úvodní fotky'        
+
+    
 
     def delete(self, *args, **kwargs):
         self.image.delete()
-        super(HomeCarousel, self).delete(*args, **kwargs)
+        super(Carousel, self).delete(*args, **kwargs)
 
     # def delete(self, *args, **kwargs):
     #     """Overriding the delete method to remove the image file from the filesystem"""

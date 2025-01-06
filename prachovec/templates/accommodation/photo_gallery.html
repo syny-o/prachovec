@@ -3,11 +3,11 @@
 <section id="photo-gallery" class="py-5">
     <div class="container">
         <div class="row">
-            {% for image in images %}
+            {% for photo in photos %}
             <div class="col-lg-4 col-sm-6 py-2">
                 <div class="thumbnail">
                     <div class="img-container">
-                        <img src="{% static image %}" class="image" alt="Ubytování Prachovec" />
+                        <img src="{{ photo.image.url }}" class="image" alt="{{ photo.title }}" />
                     </div>
                 </div>
             </div>

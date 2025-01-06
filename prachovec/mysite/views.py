@@ -4,13 +4,12 @@ from django.conf import settings
 from django.urls import reverse
 from django.contrib import messages
 
-from .models import News, HomeCarousel
-from .data import images_ubytovani, places, food_menu, drinks_menu
+from .models import News, Carousel
 
 
 def home(request):
 
-    carousel_images = HomeCarousel.objects.all()
+    carousel_images = Carousel.objects.all()
     news = News.objects.all()
     if len(news) > 2:
         news = news[:2]

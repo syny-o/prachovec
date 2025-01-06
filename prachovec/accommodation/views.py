@@ -6,12 +6,28 @@ from django.contrib import messages
 
 from .forms import ContactForm
 from .tasks import task_send_email
-from .data import images_ubytovani, places, food_menu, drinks_menu
+from .data import images_ubytovani
+from .models import Service, Note, Photo, Introduction, Carousel
 
 
 
 def accommodation(request):
 
+    # Carousel
+    carousel_images = Carousel.objects.all()
+
+    # Intro
+    introduction = Introduction.objects.last()
+
+    # photo Gallery
+    photos = Photo.objects.all()
+    
+    # price list / services + notes
+    services = Service.objects.all()
+    notes = Note.objects.all()
+
+    
+    # contact
     base_url = reverse('accommodation:accommodation')
     contact_section = f"{base_url}#contact-form"  
 
@@ -20,7 +36,11 @@ def accommodation(request):
         form = ContactForm()
         context = {
             'form': form,
-            'images': images_ubytovani,
+            'photos': photos,
+            'services' : services,
+            'notes' : notes,
+            'introduction' : introduction,
+            'carousel_images' : carousel_images,
         }
 
         return render(request, 'accommodation/accommodation.html', context)        
@@ -29,9 +49,7 @@ def accommodation(request):
     if request.method == 'POST':
         form = ContactForm(request.POST)
         if form.is_valid():
-            form.save()
-            
-            # handle_email(form.cleaned_data['email'], form.cleaned_data['full_name'], form.cleaned_data['phone'], form.cleaned_data['email'], form.cleaned_data['note'], form.cleaned_data['date_arrival'], form.cleaned_data['date_departure'])
+            form.save()                
 
             # CELEERY
             task_send_email.delay(form.cleaned_data['email'], form.cleaned_data['full_name'], form.cleaned_data['phone'], form.cleaned_data['email'], form.cleaned_data['note'], form.cleaned_data['date_arrival'], form.cleaned_data['date_departure'])

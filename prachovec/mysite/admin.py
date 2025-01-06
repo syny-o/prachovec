@@ -1,8 +1,8 @@
 from django.contrib import admin
-from .models import News, HomeCarousel
+from .models import News, Carousel
 
 
-admin.site.register(HomeCarousel)
+admin.site.register(Carousel)
 
 
 
