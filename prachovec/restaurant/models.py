@@ -1,5 +1,22 @@
 from django.db import models
 
+
+class Carousel(models.Model):
+    title = models.CharField(max_length=200, verbose_name='Název')
+    image = models.ImageField(upload_to='carousel_home/', verbose_name='Obrázek')
+
+    def __str__(self):
+        return self.title
+    
+    class Meta:
+        verbose_name = 'Úvodní fotka'
+        verbose_name_plural = 'Úvodní fotky'   
+
+    def delete(self, *args, **kwargs):
+        self.image.delete()
+        super(Carousel, self).delete(*args, **kwargs)   
+
+
 # Food Models
 class FoodCategory(models.Model):
     name = models.CharField(max_length=255, unique=True, verbose_name = "Název")
