@@ -334,6 +334,14 @@ footer .address p {
 
 /* UBYTOVANI END*/
 
+/* OBCERSTVENI START*/
+
+.table-category-column {
+  width: 250px;
+}
+
+/* OBCERSTVENI END*/
+
 /* GLOBAL START */
 
 .go-top {

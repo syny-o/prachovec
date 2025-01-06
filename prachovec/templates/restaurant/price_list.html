@@ -12,7 +12,8 @@
       <tbody>
         {% for category in drinks_menu %}
         <tr>
-          <th scope="row" rowspan="{{ category.items.all|length }}">{{ category.name }}</th>
+          <th class="table-category-column" scope="row" rowspan="{{ category.items.all|length }}">{{ category.name }}
+          </th>
           {% for item in category.items.all %}
           {% if forloop.first %}
           <td>{{ item.name }}</td>
@@ -32,7 +33,7 @@
 
 
 
-    <h2 class="my-5">Jídelní lístek</h2>
+    <h2 class="my-5 pt-5">Jídelní lístek</h2>
     <table class="table table-hover">
       <thead class="thead-color">
         <tr class="align-middle">
@@ -44,7 +45,8 @@
       <tbody>
         {% for category in food_menu %}
         <tr>
-          <th scope="row" rowspan="{{ category.items.all|length }}">{{ category.name }}</th>
+          <th class="table-category-column" scope="row" rowspan="{{ category.items.all|length }}">{{ category.name }}
+          </th>
           {% for item in category.items.all %}
           {% if forloop.first %}
           <td>{{ item.name }}</td>
