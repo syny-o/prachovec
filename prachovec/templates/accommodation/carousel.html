@@ -1,30 +1,33 @@
 {% load static %}
 
 <section id="ubytovani-hero" data-aos="fade-in" data-aos-delay="400">
-    <div class="carousel-indicators">
-        {% for image in carousel_images %}
-        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="{{ forloop.counter0 }}" 
-        {% if forloop.first %}class="active" {% endif %} aria-current="true" aria-label="Slide {{ forloop.counter }}">
-        </button>
-        {% endfor %}
-    </div>
-    <div class="carousel-inner h-100">
-        {% for image in carousel_images %}
-        <div class="carousel-item {% if forloop.first %}active{% endif %} h-100">
-            <img src="{{ image.image.url }}" alt="">
+    <section class="landing" data-aos="fade-in" data-aos-delay="400">
+        <div id="carouselExampleIndicators" class="carousel slide h-100">
+            <div class="carousel-indicators">
+                {% for image in carousel_images %}
+                <button type="button" data-bs-target="#carouselExampleIndicators"
+                    data-bs-slide-to="{{ forloop.counter0 }}" {% if forloop.first %}class="active" {% endif %}
+                    aria-current="true" aria-label="Slide {{ forloop.counter }}">
+                </button>
+                {% endfor %}
+            </div>
+            <div class="carousel-inner h-100">
+                {% for image in carousel_images %}
+                <div class="carousel-item {% if forloop.first %}active{% endif %} h-100">
+                    <img src="{{ image.image.url }}" alt="">
+                </div>
+                {% endfor %}
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
         </div>
-        {% endfor %}
-    </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
-        data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
-        data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-    </button>
-    </div>
 
-</section>
+    </section>
