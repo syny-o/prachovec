@@ -78,4 +78,12 @@
   #accommodation-gallery a {
     pointer-events: none !important;
   }
+
+  /* OBCERSTVENI START*/
+
+  .table-category-column {
+    width: 140px;
+  }
+
+  /* OBCERSTVENI END*/
 }
