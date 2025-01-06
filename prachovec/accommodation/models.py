@@ -79,6 +79,10 @@ class Introduction(models.Model):
     title = models.CharField(max_length=200, verbose_name='Titulek')
     text = RichTextField(default="-")
 
+    class Meta:
+        verbose_name = 'Úvodní text'
+        verbose_name_plural = 'Úvodní text'      
+
 
 class Carousel(models.Model):
     title = models.CharField(max_length=200, verbose_name='Název')
