@@ -3,60 +3,16 @@
 <section id="photo-gallery" class="py-5">
     <div class="container">
         <div class="row">
-
+            {% for photo in photos %}
             <div class="col-lg-4 col-sm-6 py-2">
                 <div class="thumbnail text-center">
                     <div class="img-container">
-                        <img src="{% static 'img/aktivity-1.jpg' %}" class="image" alt="Activity 1" />
+                        <img src="{{ photo.image.url }}" class="image" alt="{{ photo.name }}" />
                     </div>
-                    <p class="mt-2">Zřícenina hradu Kumburk</p>
+                    <p class="mt-2">{{ photo.description|safe }}</p>
                 </div>
             </div>
-
-            <div class="col-lg-4 col-sm-6 py-2">
-                <div class="thumbnail text-center">
-                    <div class="img-container">
-                        <img src="{% static 'img/aktivity-2.jpg' %}" class="image" alt="Activity 2" />
-                    </div>
-                    <p class="mt-2">Zřícenina hradu Kumburk</p>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-sm-6 py-2">
-                <div class="thumbnail text-center">
-                    <div class="img-container">
-                        <img src="{% static 'img/aktivity-3.jpg' %}" class="image" alt="Activity 3" />
-                    </div>
-                    <p class="mt-2">Výhled z hradu Kumburk</p>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-sm-6 py-2">
-                <div class="thumbnail text-center">
-                    <div class="img-container">
-                        <img src="{% static 'img/aktivity-4.jpg' %}" class="image" alt="Activity 4" />
-                    </div>
-                    <p class="mt-2">Prachovské skály</p>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-sm-6 py-2">
-                <div class="thumbnail text-center">
-                    <div class="img-container">
-                        <img src="{% static 'img/prachovskeskaly.jpg' %}" class="image" alt="Activity 5" />
-                    </div>
-                    <p class="mt-2">Prachovské skály</p>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-sm-6 py-2">
-                <div class="thumbnail text-center">
-                    <div class="img-container">
-                        <img src="{% static 'img/aktivity-carousel-1.jpg' %}" class="image" alt="Activity 6" />
-                    </div>
-                    <p class="mt-2">Prachovské skály</p>
-                </div>
-            </div>
+            {% endfor %}
 
         </div>
     </div>
