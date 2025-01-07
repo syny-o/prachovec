@@ -25,7 +25,7 @@ class EmailTemplateAdmin(admin.ModelAdmin):
         if obj.send:
             recipients = [r.email for r in obj.recipients.all()]
             subject = obj.subject
-            message = render_to_string(obj.message)
+            message = obj.message
 
             print("PREDMET: ", subject)          
             print("ODBERATELE: ", recipients)
