@@ -1,3 +1,33 @@
+from ckeditor.fields import RichTextField
+
 from django.db import models
 
-# Create your models here.
+
+class Subscriber(models.Model):
+
+    email = models.EmailField(unique=True)
+
+    def __str__(self) -> str:
+        return self.email
+    
+    
+    class Meta:
+        verbose_name = 'Odběratel'
+        verbose_name_plural = 'Odběratelé'  
+
+
+
+class EmailTemplate(models.Model):
+
+    subject = models.CharField(max_length=255, verbose_name="Předmět")
+    message = RichTextField(verbose_name="Zpráva")
+    recipients = models.ManyToManyField(Subscriber, verbose_name="Odběratelé", blank=True)
+    send = models.BooleanField(default=False, verbose_name="Odeslat")
+
+    def __str__(self) -> str:
+        return self.subject
+    
+    
+    class Meta:
+        verbose_name = 'Šablona'
+        verbose_name_plural = 'Šablony'      
