@@ -3,6 +3,7 @@ from django.core.mail import send_mail
 from django.conf import settings
 from django.urls import reverse
 from django.contrib import messages
+from django.core.paginator import Paginator
 
 from .forms import ContactForm
 from .tasks import task_send_email
@@ -11,40 +12,42 @@ from .models import Service, Note, Photo, Introduction, Carousel
 
 
 def accommodation(request):
-
     # Carousel
     carousel_images = Carousel.objects.all()
 
     # Intro
     introduction = Introduction.objects.last()
 
-    # photo Gallery
+    # Photo Gallery
     photos = Photo.objects.all()
-    
-    # price list / services + notes
+
+    # Paginate photos (e.g., 6 photos per page)
+    paginator = Paginator(photos, 6)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+
+    # Price list / services + notes
     services = Service.objects.all()
     notes = Note.objects.all()
 
-    
-    # contact
+    # Contact
     base_url = reverse('accommodation:accommodation')
-    contact_section = f"{base_url}#contact-form"  
+    contact_section = f"{base_url}#contact-form"
 
     if request.method == 'GET':
-
         form = ContactForm()
         context = {
             'form': form,
-            'photos': photos,
-            'services' : services,
-            'notes' : notes,
-            'introduction' : introduction,
-            'carousel_images' : carousel_images,
+            'photos': page_obj,  # Pass paginated photos
+            'services': services,
+            'notes': notes,
+            'introduction': introduction,
+            'carousel_images': carousel_images,
+            'contact_section': contact_section,  # Added for completeness
         }
-
-        return render(request, 'accommodation/accommodation.html', context)        
-
-
+        return render(request, 'accommodation/accommodation.html', context)
+    
+    
     if request.method == 'POST':
         form = ContactForm(request.POST)
         if form.is_valid():
