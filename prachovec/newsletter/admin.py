@@ -19,6 +19,8 @@ class EmailTemplateAdmin(admin.ModelAdmin):
         """
             once the Email Template is saved (in admin site), this template is sent as Newsletter to all recipients
         """
+        super().save_model(request, obj, form, change)
+        
         if obj.send:
             recipients = [r for r in obj.recipients.all()]
             subject = obj.subject
@@ -30,7 +32,6 @@ class EmailTemplateAdmin(admin.ModelAdmin):
 
             task_send_newsletter(subject, message, recipients)
 
-        return super().save_model(request, obj, form, change)
         
         
     
