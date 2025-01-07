@@ -22,7 +22,7 @@ class EmailTemplateAdmin(admin.ModelAdmin):
         super().save_model(request, obj, form, change)
         
         if obj.send:
-            recipients = [r for r in obj.recipients.all()]
+            recipients = [r.email for r in obj.recipients.all()]
             subject = obj.subject
             message = obj.message
 
