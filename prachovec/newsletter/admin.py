@@ -1,4 +1,5 @@
 from django.contrib import admin
+from django.template.loader import render_to_string
 from .models import Subscriber, EmailTemplate
 from .tasks import task_send_newsletter
 # from django.forms import ModelForm
@@ -24,7 +25,7 @@ class EmailTemplateAdmin(admin.ModelAdmin):
         if obj.send:
             recipients = [r.email for r in obj.recipients.all()]
             subject = obj.subject
-            message = obj.message
+            message = render_to_string(obj.message)
 
             print("PREDMET: ", subject)          
             print("ODBERATELE: ", recipients)
