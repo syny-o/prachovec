@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'activities',
     'ckeditor',
     'django_celery_results',
+    'newsletter',
 ]
 
 MIDDLEWARE = [
