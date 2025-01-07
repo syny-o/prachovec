@@ -9,6 +9,7 @@ def task_send_newsletter(subject, message, recipients):
     subject = 'Pravidelný Newsletter z Prachovce'
     send_mail(
         subject=subject, 
+        message="",
         html_message=message, 
         from_email=settings.EMAIL_HOST_USER, 
         recipient_list=recipients
