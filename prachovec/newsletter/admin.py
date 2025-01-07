@@ -30,7 +30,7 @@ class EmailTemplateAdmin(admin.ModelAdmin):
             print("ODBERATELE: ", recipients)
             print("ZPRAVA: ", message)
 
-            task_send_newsletter(subject, message, recipients)
+            task_send_newsletter.delay(subject, message, recipients)
 
         
         
