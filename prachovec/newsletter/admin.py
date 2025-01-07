@@ -13,7 +13,7 @@ class NewsletterAdmin(admin.ModelAdmin):
 
     def save_model(self, request, obj, form, change) -> None:      
             """
-                once the Email Template is saved (in admin site), this template is sent as Newsletter to all recipients
+                once the Newsletter is saved, this template is sent as Newsletter to all recipients which are within Email Template
             """
             super().save_model(request, obj, form, change)
             
@@ -23,13 +23,14 @@ class NewsletterAdmin(admin.ModelAdmin):
                 subject = email_template.subject
                 message = email_template.message
 
-                print("PREDMET: ", subject)          
-                print("ODBERATELE: ", recipients)
-                print("ZPRAVA: ", message)
+                # print("PREDMET: ", subject)          
+                # print("ODBERATELE: ", recipients)
+                # print("ZPRAVA: ", message)
 
+                # send to all recipeients via Celery
                 task_send_newsletter.delay(subject, message, recipients)
 
-                # Automatically reset `sent` to False after processing
+                # Automatically reset `send` to False after processing
                 obj.send = False
                 obj.save(update_fields=['send'])  # Save only the `sent` field
 
