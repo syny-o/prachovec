@@ -6,7 +6,6 @@ from django.contrib import messages
 
 from .forms import ContactForm
 from .tasks import task_send_email
-from .data import images_ubytovani
 from .models import Service, Note, Photo, Introduction, Carousel
 
 
