@@ -2,8 +2,9 @@ from django.shortcuts import render, redirect
 from django.core.mail import send_mail
 from django.conf import settings
 from django.urls import reverse
+from django.http import HttpResponse
 from django.contrib import messages
-from django.core.paginator import Paginator
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 from .forms import ContactForm
 from .tasks import task_send_email
@@ -21,10 +22,25 @@ def accommodation(request):
     # Photo Gallery
     photos = Photo.objects.all()
 
-    # Paginate photos (e.g., 6 photos per page)
-    paginator = Paginator(photos, 6)
+    
+    paginator = Paginator(photos, 6)  # Paginate photos (6 photos per page)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
+    page = request.GET.get('page')
+    photos_only = request.GET.get('photos_only')
+    try:
+        one_page_photos = paginator.page(page)
+    except PageNotAnInteger:
+        # If page is not an integer deliver the first page
+        one_page_photos = paginator.page(1)
+    except EmptyPage:
+        if photos_only:
+            # If AJAX request and page out of range
+            # return an empty page
+            return HttpResponse('')
+        # If page out of range return last page of results
+        one_page_photos = paginator.page(paginator.num_pages)
+
 
     # Price list / services + notes
     services = Service.objects.all()
@@ -35,10 +51,18 @@ def accommodation(request):
     contact_section = f"{base_url}#contact-form"
 
     if request.method == 'GET':
+        if photos_only:  # AJAX request for another page of photos
+            return render(
+                request,
+                'accommodation/photos.html',
+                {'photos': one_page_photos,}
+        )
+
         form = ContactForm()
         context = {
             'form': form,
             'photos': page_obj,  # Pass paginated photos
+            'total_pages': paginator.num_pages,
             'services': services,
             'notes': notes,
             'introduction': introduction,
