@@ -4,6 +4,7 @@
         <div class="img-container">
             <img src="{{ photo.image.url }}" class="image" alt="{{ photo.title }}" />
         </div>
+        <p class="mt-2">{{ photo.description|safe }}</p>
     </div>
 </div>
 {% endfor %}
