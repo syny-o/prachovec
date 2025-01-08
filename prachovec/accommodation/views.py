@@ -11,6 +11,9 @@ from .models import Service, Note, Photo, Introduction, Carousel
 
 
 
+from django.shortcuts import render
+from django.http import HttpResponse
+
 def accommodation(request):
     # Carousel
     carousel_images = Carousel.objects.all()
@@ -33,6 +36,9 @@ def accommodation(request):
     # Contact
     base_url = reverse('accommodation:accommodation')
     contact_section = f"{base_url}#contact-form"
+
+    if request.headers.get('HX-Request'):  # Check if the request is from HTMX
+        return render(request, 'accommodation/partials/photo_gallery.html', {'photos': page_obj})
 
     if request.method == 'GET':
         form = ContactForm()

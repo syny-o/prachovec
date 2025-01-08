@@ -1,5 +1,8 @@
-<section id="photo-gallery" class="py-5">
+<section id="photo-gallery">
     <div class="container">
+
+    <div id="gallery-content">
+        <!-- Gallery Items -->
         <div class="row">
             {% for photo in photos %}
             <div class="col-lg-4 col-sm-6 py-2">
@@ -13,34 +16,71 @@
             {% endfor %}
         </div>
 
+
         <!-- Pagination Controls -->
+        {% if photos.paginator.num_pages > 1 %}
         <div class="pagination mt-4">
             <nav>
                 <ul class="pagination justify-content-center">
                     {% if photos.has_previous %}
                     <li class="page-item">
-                        <a class="page-link" href="?page={{ photos.previous_page_number }}#photo-gallery"
-                            aria-label="Previous">
+                        <button class="page-link" hx-get="?page={{ photos.previous_page_number }}#introduction"
+                            hx-target="#gallery-content" aria-label="Previous">
                             <span aria-hidden="true">&laquo;</span>
-                        </a>
+                        </button>
+                    </li>
+                    {% else %}
+                    <li class="page-item disabled">
+                        <button class="page-link" aria-disabled="true" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </button>
                     </li>
                     {% endif %}
 
                     {% for page_num in photos.paginator.page_range %}
                     <li class="page-item {% if page_num == photos.number %}active{% endif %}">
-                        <a class="page-link" href="?page={{ page_num }}#photo-gallery">{{ page_num }}</a>
+                        <button class="page-link" hx-get="?page={{ page_num }}#introduction" hx-target="#gallery-content">
+                            {{ page_num }}
+                        </button>
                     </li>
                     {% endfor %}
 
                     {% if photos.has_next %}
                     <li class="page-item">
-                        <a class="page-link" href="?page={{ photos.next_page_number }}#photo-gallery" aria-label="Next">
+                        <button class="page-link" hx-get="?page={{ photos.next_page_number }}#introduction"
+                            hx-target="#gallery-content" aria-label="Next">
                             <span aria-hidden="true">&raquo;</span>
-                        </a>
+                        </button>
+                    </li>
+                    {% else %}
+                    <li class="page-item disabled">
+                        <button class="page-link" aria-disabled="true" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </button>
                     </li>
                     {% endif %}
+                    <div id="spinner" class="spinner-border text-primary" role="status" style="display: none;">
+                <span class="visually-hidden">Loading...</span>
+            </div>
                 </ul>
             </nav>
         </div>
+        {% endif %}
+    </div>
     </div>
 </section>
+
+<script>
+    document.addEventListener('htmx:configRequest', function (event) {
+        document.getElementById('spinner').style.display = 'block'; // Show spinner
+    });
+
+    document.addEventListener('htmx:afterRequest', function (event) {
+        document.getElementById('spinner').style.display = 'none'; // Hide spinner
+    });
+
+    document.addEventListener('htmx:requestError', function (event) {
+        document.getElementById('spinner').style.display = 'none'; // Hide spinner on error
+        alert('Something went wrong. Please try again.'); // Optional error handling
+    });
+</script>

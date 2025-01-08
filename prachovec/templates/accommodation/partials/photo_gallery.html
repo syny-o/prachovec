@@ -1,0 +1,66 @@
+<div id="gallery-content">
+    <!-- Gallery Items -->
+    <div class="row">
+        {% for photo in photos %}
+        <div class="col-lg-4 col-sm-6 py-2">
+            <div class="thumbnail text-center">
+                <div class="img-container">
+                    <img src="{{ photo.image.url }}" class="image" alt="{{ photo.name }}" />
+                </div>
+                <p class="mt-2">{{ photo.description|safe }}</p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+
+    <!-- Pagination Controls -->
+    {% if photos.paginator.num_pages > 1 %}
+    <div class="pagination mt-4">
+        <nav>
+            <ul class="pagination justify-content-center">
+                {% if photos.has_previous %}
+                <li class="page-item">
+                    <button class="page-link" hx-get="?page={{ photos.previous_page_number }}#introduction"
+                        hx-target="#gallery-content" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </button>
+                </li>
+                {% else %}
+                <li class="page-item disabled">
+                    <button class="page-link" aria-disabled="true" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </button>
+                </li>
+                {% endif %}
+
+                {% for page_num in photos.paginator.page_range %}
+                <li class="page-item {% if page_num == photos.number %}active{% endif %}">
+                    <button class="page-link" hx-get="?page={{ page_num }}#introduction" hx-target="#gallery-content">
+                        {{ page_num }}
+                    </button>
+                </li>
+                {% endfor %}
+
+                {% if photos.has_next %}
+                <li class="page-item">
+                    <button class="page-link" hx-get="?page={{ photos.next_page_number }}#introduction"
+                        hx-target="#gallery-content" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </button>
+                </li>
+                {% else %}
+                <li class="page-item disabled">
+                    <button class="page-link" aria-disabled="true" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </button>
+                </li>
+                {% endif %}
+                <div id="spinner" class="spinner-border text-primary" role="status" style="display: none;">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+            </ul>
+        </nav>
+    </div>
+    {% endif %}
+</div>
